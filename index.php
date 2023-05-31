@@ -29,15 +29,30 @@ if ($conn->connect_error) {
 //     echo "Error creating database: " . $conn->error;
 //    }
 
-  $targa = $_REQUEST['targa'];
-  $alimentazione = $_REQUEST['alimentazione'];
-  $descrizione = $_REQUEST['descrizione'];
+  $targa = $_POST['targa'];
+  $alimentazione = $_POST['alimentazione'];
+  $descrizione = $_POST['descrizione'];
  //var_dump($targa,$alimentazione,$descrizione);
 
  
   $sql = "INSERT INTO auto(targa,alimentazione,descrizione) VALUES ( '$targa', '$alimentazione', '$descrizione')";
   $myQuery= mysqli_query($conn,$sql);
 
+
+  try{
+    $sqlquery = "SELECT * FROM auto";
+    $result = $conn->query($sqlquery);
+    $auto= [];
+    if($result->num_rows){
+        while($row = $result->fetch_assoc()){
+           $auto[] = $row;
+        }
+    }
+  } catch(Exception $e){
+    echo $e->getMessage();
+    die();
+
+  };
 
   
 
@@ -67,6 +82,7 @@ $conn->close();
     <table class="table">
   <thead>
     <tr>
+    <th scope="col">id</th>
       
       <th scope="col">targa</th>
       <th scope="col">alimentazione</th>
@@ -74,12 +90,17 @@ $conn->close();
     </tr>
   </thead>
   <tbody>
+    <?php foreach($auto as $singleauto):?>
     <tr>
-      
-       <td><?= $targa?></td>
-      <td><?= $alimentazione?></td>
-      <td><?= $descrizione?></td> 
+    <td><?= $singleauto['id']?></td>
+
+      <td> <?= $singleauto['targa']?></td>
+      <td><?= $singleauto['alimentazione']?></td>
+      <td><?= $singleauto['descrizione']?></td> 
     </tr>
+    <?php endforeach;?>
+    
+
   </tbody>
 </table>
 
