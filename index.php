@@ -12,33 +12,37 @@ if ($conn->connect_error) {
 }
 
 // Create database
-// $sql = "CREATE DATABASE db_test";
+//  $sql = 'CREATE DATABASE db_test';
 
-// $sql = "CREATE TABLE auto(
-// id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-// nomeAuto VARCHAR(30) NOT NULL,
-// alimentazione VARCHAR(30) NOT NULL,
-// descrizione TEXT(100),
-// reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-// )";
-
-
-// if ($conn->query($sql) === TRUE) {
-//   echo "Database created successfully";
-// } else {
-//   echo "Error creating database: " . $conn->error;
-// }
-
-$targa = $_REQUEST['targa'];
-$alimentazione = $_REQUEST['alimentazione'];
-$descrizione = $_REQUEST['descrizione'];
-var_dump($targa,$alimentazione,$descrizione);
-$sql = "INSERT INTO auto(targa,alimentazione,descrizione) VALUES ( '$targa', '$alimentazione', '$descrizione')";
-$myQuery= mysqli_query($conn, $sql);
+//    $sql = "CREATE TABLE auto(
+//  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//   nomeAuto VARCHAR(30) NOT NULL,
+//    alimentazione VARCHAR(30) NOT NULL,
+//    descrizione TEXT(100),
+//   reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+//   )";
 
 
+//  if ($conn->query($sql) === TRUE) {
+//    echo "Database created successfully";
+//   } else {
+//     echo "Error creating database: " . $conn->error;
+//    }
+
+  $targa = $_REQUEST['targa'];
+  $alimentazione = $_REQUEST['alimentazione'];
+  $descrizione = $_REQUEST['descrizione'];
+ //var_dump($targa,$alimentazione,$descrizione);
+
+ 
+  $sql = "INSERT INTO auto(targa,alimentazione,descrizione) VALUES ( '$targa', '$alimentazione', '$descrizione')";
+  $myQuery= mysqli_query($conn,$sql);
 
 
+  
+
+
+  
 $conn->close();
 ?>
 
@@ -72,9 +76,9 @@ $conn->close();
   <tbody>
     <tr>
       
-      <td><?= $targa?></td>
+       <td><?= $targa?></td>
       <td><?= $alimentazione?></td>
-      <td><?= $descrizione?></td>
+      <td><?= $descrizione?></td> 
     </tr>
   </tbody>
 </table>
