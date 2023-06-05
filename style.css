@@ -13,17 +13,22 @@
     padding: 2px;
     border: 2px solid;
 }
+.btn-reset{
+    border: 1px solid #689F38;
+ border-radius: 6px;
+ padding: 6px 15px;
 
+
+}
 .btn-reset i{
     
- border-radius: 10px;
- padding: 5px;
+ 
  color: #689F38;
 
 
 }
 
-.table-custom tbody{
+.table-custom{
     margin-top: 50px;
     height: 700px;
     overflow-y: auto;
