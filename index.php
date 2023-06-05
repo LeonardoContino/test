@@ -159,7 +159,8 @@ $conn->close();
           </form>
     </div>
 
-<table class="table table-custom">
+    <div class="table-custom">
+    <table class="table">
   <thead>
     <tr>
     <th scope="col">id</th>
@@ -186,6 +187,8 @@ $conn->close();
 
   </tbody>
 </table>
+    </div>
+
 
 
 </body>

@@ -17,11 +17,14 @@
 .btn-reset i{
     
  border-radius: 10px;
+ padding: 5px;
+ color: #689F38;
 
 
 }
 
-.table-custom{
+.table-custom tbody{
+    margin-top: 50px;
     height: 700px;
     overflow-y: auto;
-}
+} 
