@@ -33,3 +33,14 @@
     height: 700px;
     overflow-y: auto;
 } 
+.msg-error{
+    display: flex;
+    justify-content: center;
+    
+}
+.msg-error h3{
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: red;
+}

@@ -17,7 +17,6 @@ if(isset($_POST['targa'])){
   $alimentazione = $_POST['alimentazione'];
   $descrizione = $_POST['descrizione'];
   
-
   $sql = "INSERT INTO auto(targa,alimentazione,descrizione) VALUES ( '$targa', '$alimentazione', '$descrizione')";
   $myQuery= mysqli_query($conn,$sql);
 
@@ -25,22 +24,16 @@ if(isset($_POST['targa'])){
 
 $options = array('benzina', 'diesel', 'hibrid', 'elettrico', 'gpl');
 
-
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+  header('Location: ./index.php');
+}
 
 
 $conn->close();
 
  ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script defer src="main.js"></script>
-    <title>form</title>
-</head>
+<?php include 'head.php' ?>
 
 <body class="container">
 <div class="my-3 d-flex justify-content-center">
@@ -52,7 +45,7 @@ $conn->close();
     <a href="index.php" class="btn btn-secondary">torna indietro</a>
   <div class="mb-3">
     <label for="targa"  class="form-label">targa</label>
-    <input type="text" class="form-control" id="targa"  name="targa" required>
+    <input type="text" class="form-control" id="targa"  name="targa"  required>
     
   </div>
   <div class="mb-3">
