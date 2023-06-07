@@ -73,9 +73,9 @@ $conn->close();
     <td><?= $singleauto['descrizione']?></td> 
     <td><?=$singleauto['reg_date']?></td>
     <td>
-    <a href="view.php?id=<?=$singleauto['id']?>" class="btn btn-primary" >dettagli</a>
-      <a href="update.php?id=<?=$singleauto['id']?>" class="btn btn-success">Modifica</a>
-      <a href="delete.php?id=<?= $singleauto['id']?>" type="submit"  name="delete_form" class="btn btn-danger">Elimina</a>
+    <a href="view.php?id=<?=$singleauto['id']?>" class="btn btn-primary" ><i class="fa-solid fa-eye"></i></a>
+      <a href="update.php?id=<?=$singleauto['id']?>" class="btn btn-success"><i class="fa-regular fa-pen-to-square"></i></a>
+      <a href="delete.php?id=<?= $singleauto['id']?>" type="submit"  name="delete_form" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
     </td> 
 
     </tr>
