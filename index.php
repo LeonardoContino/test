@@ -13,6 +13,7 @@ if ($conn->connect_error) {
 
 include 'function.php';
 
+
  
 $conn->close();
 ?>
@@ -21,12 +22,13 @@ $conn->close();
 <html lang="en">
 <?php include 'head.php' ?>
 <body class="container">
+
     <div class="my-3 d-flex justify-content-center">
         Gestione Noleggi
     </div>
 
     <div class="d-flex justify-content-between align-items-center">
-        <a class="btn btn-primary" href="addForm.php">aggiungi noleggi</a>
+        <a class="btn btn-primary" href="addForm.php"><i class="fa-solid fa-plus"></i> Aggiungi</a>
        <form action="" method="POST" class="search-form">
        <select type="submit" class="form-select me-2" id="select" name="select">
        <option value="">alimentazione</option>
@@ -59,7 +61,7 @@ $conn->close();
       <th scope="col">alimentazione</th>
       <th scope="col">descrizione</th>
       <th scope="col">data</th>
-      <th scope="col">seleziona</th>
+      <th scope="col">opzioni</th>
 
 
     </tr>
@@ -71,11 +73,11 @@ $conn->close();
     <td> <?= $singleauto['targa']?></td>
     <td><?= $singleauto['alimentazione']?></td>
     <td><?= $singleauto['descrizione']?></td> 
-    <td><?=$singleauto['reg_date']?></td>
+    <td><?=  $date = date("d-m-Y", strtotime( $singleauto['reg_date']))?></td>
     <td>
     <a href="view.php?id=<?=$singleauto['id']?>" class="btn btn-primary" ><i class="fa-solid fa-eye"></i></a>
       <a href="update.php?id=<?=$singleauto['id']?>" class="btn btn-success"><i class="fa-regular fa-pen-to-square"></i></a>
-      <a href="delete.php?id=<?= $singleauto['id']?>" type="submit"  name="delete_form" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+      <a href="delete.php?id=<?= $singleauto['id']?>" type="submit"  name="delete_form" class="btn btn-danger" id="btnDelete"><i class="fa-solid fa-trash"></i></a>
     </td> 
 
     </tr>
