@@ -11,36 +11,11 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+include 'function.php';
 
 
 $options = array('benzina', 'diesel', 'hibrid', 'elettrico', 'gpl');
 
-
-if(isset($_GET['id'])){
-  $auto_id = mysqli_real_escape_string($conn,$_GET['id']) ;
-  $sql = "SELECT * FROM auto WHERE id='$auto_id'";
-  $query_run = mysqli_query($conn, $sql);
-
-  if(mysqli_num_rows($query_run) > 0){
-    $auto = mysqli_fetch_array($query_run);
-  }else{
-    echo "<h4> Questo id non esiste </h4>";
-  }
-
-  if(isset($_POST['update_from'])){
-    $auto_id =mysqli_real_escape_string( $_POST['id']) ;
-   $targa =mysqli_real_escape_string($_POST['targa']) ;
-   $alimentazione =mysqli_real_escape_string( $_POST['alimentazione']);
-   $descrizione =mysqli_real_escape_string($_POST['descrizione']) ;
-   $date =mysqli_real_escape_string($_POST['reg_date']) ;
-   
-   $sql = "UPDATE auto SET targa='$targa', alimentazione='$alimentazione', descrizione='$descrizione', reg_date='$date'
-    WHERE id='$auto_id'";
-    $query_run = mysqli_query($conn, $sql);
-  
-   var_dump($sql);
-   }
-}
 
 
 
@@ -61,7 +36,7 @@ $conn->close();
     </div>
 
 
-    <form action="index.php" method="POST">
+    <form action="" method="POST">
     <a href="index.php" class="btn btn-secondary">torna indietro</a>
 
     <input type="hidden" name="auto_id" value="<?= $auto['id']?>">

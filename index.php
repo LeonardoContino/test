@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 
 include 'function.php';
 
-
+ 
 $conn->close();
 ?>
 
@@ -36,14 +36,15 @@ $conn->close();
     
 
     </select>
-    <input type="submit" name="submit" class="btn btn-primary ms-2">
+    <button  type="submit" name="submit"  class="btn btn-primary ms-2">Filtra</button>
+    
     
        </form>
        <form action="" method="POST" class="search-form">
        
 
           <input placeholder="Cerca Targa" type="text" name="search" class="search">
-          <input type="submit" name="submit" class="btn btn-primary ms-2">
+          <button type="submit" name="submit" class="btn btn-primary ms-2">Filtra</button>
           <button class="btn-reset ms-2" type="submit" name="submit"><i class="fa-solid fa-rotate-left"></i></button>
           </form>
     </div>
@@ -70,10 +71,11 @@ $conn->close();
     <td> <?= $singleauto['targa']?></td>
     <td><?= $singleauto['alimentazione']?></td>
     <td><?= $singleauto['descrizione']?></td> 
-    <td><?= $singleauto['reg_date']?></td>
+    <td><?=$singleauto['reg_date']?></td>
     <td>
     <a href="view.php?id=<?=$singleauto['id']?>" class="btn btn-primary" >dettagli</a>
       <a href="update.php?id=<?=$singleauto['id']?>" class="btn btn-success">Modifica</a>
+      <a href="delete.php?id=<?= $singleauto['id']?>" type="submit"  name="delete_form" class="btn btn-danger">Elimina</a>
     </td> 
 
     </tr>
